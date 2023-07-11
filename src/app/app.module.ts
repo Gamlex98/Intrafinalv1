@@ -29,7 +29,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { AutoFocusModule } from 'primeng/autofocus';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { UploadComponent } from './components/upload/upload.component';
@@ -92,7 +91,6 @@ import { BrigadaComponent } from './components/home/child/brigada/brigada.compon
     MatOptionModule,
     MatInputModule,
     AutoFocusModule,
-    FontAwesomeModule,
     InputTextModule,
     CalendarModule,
     MatProgressBarModule,
@@ -100,7 +98,7 @@ import { BrigadaComponent } from './components/home/child/brigada/brigada.compon
     DatePipe,
     ImageModule,
     FieldsetModule,
-    TabViewModule
+    TabViewModule,
   ],
 
   providers: [ 
