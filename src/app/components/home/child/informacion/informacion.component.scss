@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 body {
@@ -24,8 +24,8 @@ h4 {
 	position: absolute;
 	top: 54%;
 	left: 80%;
-	width: 300px;
-	height: 400px;
+	width: 23%;
+	height: 53%;
 	background: #e0e1dc;
 	transform-style: preserve-3d;
 	transform: translate(-50%,-50%) perspective(2000px);
@@ -34,7 +34,7 @@ h4 {
 }
 
 .card:hover {
-	transform: translate(-50%,-50%) perspective(2000px) rotate(5deg) scale(1.1);
+	transform: translate(-50%,-50%) perspective(2000px) rotate(4deg) scale(1.1);
 	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
 }
 
@@ -43,7 +43,7 @@ h4 {
 	position: absolute;
 	top: -2px;
 	left: 0;
-	width: 100%;
+	width: 10%;
 	height: 1px;
 	background: #BAC1BA;
 	transform-origin: bottom;
@@ -54,8 +54,8 @@ h4 {
 	content: '';
 	position: absolute;
 	top: 0;
-	right: -5px;
-	width: 5px;
+	right: 0.1%;
+	width: 0.5%;
 	height: 100%;
 	background: #92A29C;
 	transform-origin: left;
@@ -80,8 +80,8 @@ h4 {
 }
 
 .card .imgBox img {
-	min-width: 250px;
-	max-height: 400px;
+	width: 100%;
+	height: 100%;
 }
 
 .card:hover .imgBox {
@@ -99,16 +99,18 @@ h4 {
 	top: 0;
 	left: 0;
 	box-sizing: border-box;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 20px;
 	z-index: -1;
-	margin-top: 70px;
+	margin-top: 35px;
 }
 
 .card .details p {
-	font-size: 15px;
+	margin-top: 15px;
+	font-size: 13px;
 	line-height: 5px;
 	transform: rotate(-10deg);
-	padding: 0 0 0 20px;
+	padding: 0  0 0 10px;
+	text-align: flex;
 }
 
 .card .details h4 {
@@ -116,20 +118,22 @@ h4 {
 }
 
 .text-right {
-	text-align: right;
-} */
+	text-align: center;
+}
+
 
 ////////////////////////////////////////////////////
 
 
 .imgCumple {
 	margin-top: 55px;
-	width: 50%;
-	height: 40%;
+	width: 20%;
+	height: 30%;
 }
 
 .dataTable {
-	width: 100%;
+	width: auto;
+	height: auto;
   }
   
   @media (max-width: 600px) {
@@ -169,6 +173,6 @@ h4 {
 }
   
 .derecha {
-    margin-left: 70px;
+    margin-left: 50px;
 }
   

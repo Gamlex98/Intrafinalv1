@@ -4,7 +4,7 @@
         <div class="subtitle">
             <h3>Cumpleaños del mes {{getMonthName(currentMonth)}}  </h3>
         </div> 
-        <br><br>          
+        <br>          
         <div class="paginador-contenedor">
             <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons aria-placeholder="Items por pagina">
             </mat-paginator>
@@ -40,6 +40,7 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+            <br>
         </div>
     </div>
     <div class="derecha">
@@ -54,10 +55,29 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div>
+        
+        <div class="card" style="margin-top: 80px;">
+            <div class="imgBox img-fluid">
+                <div class="bark img-fluid"></div>
+                <img src="assets/img/componentes/cumple.jpg">
+            </div>
+            <div class="details">
+                <h2 class="color1">No eres un Fósil (aún) </h2>
+                <h3 class="color2 margin">Feliz Cumpleaños</h3>
+                    <p style="margin-bottom: 15px; ">Hola,</p>
+                    <p style="margin-bottom: 15px;">Vamos a ver ...</p>
+                    <p style="margin-bottom: 15px;">Te queremos desear</p>
+                    <p style="margin-bottom: 15px;">un feliz cumpleaños</p>
+                    <p style="margin-bottom: 15px;">Dios te brinde muchos años más</p>
+                    <p style="margin-bottom: 15px;">llenos de muchas bendiciones.</p>
+                    <p class="text-right">Feliz Cumpleaños!</p>
+                    <p class="text-right">♥ Fresmar ♥ </p>
+            </div>
+        </div>
+  <!--       <div>
             <img src="assets/img/componentes/cumple.jpg" class="imgCumple img-fluid">
         </div>
-        <!--             <div class="details">
+            <div class="details">
                 <h2 class="color1">You're not a Fossil! (YET)</h2>
                 <h3 class="color2 margin">(HAPPY BIRTHDAY)</h3>
                 <p>Dear Dad,</p>
@@ -70,6 +90,6 @@
                 <p>How do you do that?</p>
                 <p class="text-right"> Feliz Día!</p>
                 <p class="text-right">♥ Fresmar</p>
-            </div> -->
+            </div>  -->
     </div>
 </div>

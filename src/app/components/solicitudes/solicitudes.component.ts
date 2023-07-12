@@ -41,7 +41,7 @@ export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
       position: 'center',
       icon: 'info',
       title: `Este componente se encuentra en Construcción !`,
-      text: 'Pronto estará disonible , se encuentra en proceso de desarrollo..',
+      text: 'Pronto estará disponible , se encuentra en proceso de desarrollo...',
       showConfirmButton: true,
       confirmButtonText: 'Entendido'
     }).then((result) => {
