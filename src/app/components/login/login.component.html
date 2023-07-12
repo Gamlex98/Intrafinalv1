@@ -8,7 +8,7 @@
 	</div>
 		<div class="right">
 		<h5>Login</h5>
-		<p style="margin-top: 100px;"> No tienes una cuenta?  <a href="#">Crear Cuenta</a>   Esto solamente tomará un minuto .</p>
+		<p style="margin-top: 100px;"> No tienes una cuenta?  <a class="link" (click)="avisoAlert()">Crear Cuenta</a>   Esto solamente tomará un minuto .</p>
 		<div class="inputs">
 			<input type="text" placeholder="Usuario">
 			<br>
@@ -21,10 +21,10 @@
 		<input type="checkbox" name="item" checked/>
 		<span class="text-checkbox">Recuerdame</span>
 	</label> -->
-			<p> Olvidaste la contraseña ? <a href="#">Recuperar</a> </p>
+			<p> Olvidaste la contraseña ? <a class="link" (click)="avisoAlert()">Recuperar</a> </p>
 		</div>
 			<br>
-			<button> Entrar </button>
+			<button (click)="avisoAlert()"> Entrar </button>
 	</div>
 	
 </div>
