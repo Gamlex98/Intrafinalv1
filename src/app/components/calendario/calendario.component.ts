@@ -71,18 +71,18 @@ export class CalendarioComponent implements OnInit {
 
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.fechaSeleccionada = this.fechaSeleccionada;
-  
+
     modalRef.result.then((result) => {
       if (result) {
         const { titulo, fechaStart, fechaEnd } = result;
         const calendarApi = selectInfo.view.calendar;
-  
+
         // console.log('Título:', titulo);
         // console.log('Fecha de inicio:', fechaStart);
         // console.log('Fecha de fin:', fechaEnd);
-  
+
         calendarApi.unselect(); // clear date selection
-  
+
         calendarApi.addEvent({
           id: createEventId(),
           title: titulo,
@@ -90,11 +90,35 @@ export class CalendarioComponent implements OnInit {
           end: fechaEnd,
           allDay: selectInfo.allDay
         });
-  
+
         let eventoGuardar = new EventModel();
         eventoGuardar.title = titulo;
         eventoGuardar.start = fechaStart;
         eventoGuardar.end = fechaEnd;
+
+        if (!eventoGuardar.title) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `Titulo vacio !!`,
+            text: `Llena correctamente todos los espacios..`,
+            showConfirmButton: true,
+            confirmButtonText: 'Entendido'
+          });
+          return;
+        }
+
+        if (eventoGuardar.start.getTime() === eventoGuardar.end.getTime()) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `Fecha incorrecta !!`,
+            text: `La fecha inicial es igual a la fecha final..`,
+            showConfirmButton: true,
+            confirmButtonText: 'Entendido'
+          });
+          return;
+        } else {
 
         this.grabarEventoBD(eventoGuardar);
         this.refreshEvents();
@@ -104,26 +128,30 @@ export class CalendarioComponent implements OnInit {
           title: `Evento : <span style="color: blue; text-decoration: underline">${titulo}</span>  guardado Existosamente !`,
           showConfirmButton: false,
           timer: 1000
-          });
-        
-      }}).catch(() => {
+        });
+
+      }
+    }
+  }).catch(() => {
       // Maneja cualquier error que ocurra al abrir o cerrar el modal.
       console.log('Modal Cancelado por el Usuario');
-    });
+  });
+
   }
-  
+
+
   //Eliminar eventos
   handleEventClick(clickInfo: EventClickArg) {
     // Comparamos la hora actual con la hora del evento seleccionado para restringir la eliminación.
     this.fechaSeleccionada = clickInfo.event.startStr;
     const actualDate = new Date();
     this.fechaEvento = new Date(this.fechaSeleccionada);
-  
+
     console.log('fechaActual:', actualDate);
     console.log('fechaEvento:', this.fechaEvento);
-  
+
     let allowDeletion = true;
-  
+
     if (actualDate > this.fechaEvento) {
       Swal.fire({
         position: 'center',
@@ -133,10 +161,10 @@ export class CalendarioComponent implements OnInit {
         showConfirmButton: true,
         confirmButtonText: 'Entendido'
       });
-  
+
       allowDeletion = false;
     }
-  
+
     if (this.isEventRunning(clickInfo.event)) {
       Swal.fire({
         position: 'center',
@@ -146,10 +174,10 @@ export class CalendarioComponent implements OnInit {
         showConfirmButton: true,
         confirmButtonText: 'Aceptar'
       });
-  
+
       allowDeletion = false;
     }
-  
+
     if (allowDeletion) {
       Swal.fire({
         title: `¿Estás seguro de que deseas eliminar este evento? <span style="color: blue; text-decoration: underline">${clickInfo.event.title}</span>`,
@@ -249,24 +277,24 @@ export class CalendarioComponent implements OnInit {
     const currentDateTime = new Date().getTime();
     const eventStart = event.start?.getTime() || 0;
     const eventEnd = event.end?.getTime() || 0;
-  
+
     return eventStart <= currentDateTime && currentDateTime <= eventEnd;
   }
-  
+
   //Eventos Programados
   isEventProgram(event: EventApi): boolean {
     const currentDateTime = new Date().getTime();
     const eventStart = event.start?.getTime() || 0;
     const eventEnd = event.end?.getTime() || 0;
-  
+
     return currentDateTime < eventStart;
   }
-  
+
   // Vista completa Calendario
   handleWeekendsToggle() {
     const { calendarOptions } = this;
     calendarOptions.weekends = !calendarOptions.weekends;
-  } 
+  }
 
   //Guardar informacion en la BD
   grabarEventoBD(eventoGrabar: EventModel) {
@@ -276,7 +304,7 @@ export class CalendarioComponent implements OnInit {
         this.refreshEvents();
         this.changeDetector.detectChanges();
       },
-      error: (e) => console.log('Error al Guardar el Evento',e)
+      error: (e) => console.log('Error al Guardar el Evento', e)
     });
   }
 

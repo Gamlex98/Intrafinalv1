@@ -37,6 +37,8 @@ export class ModalComponent implements OnInit{
   
   guardarEvento() {
     const fechaActual = new Date();
+    const formattedFechaActual = `${fechaActual.getHours().toString().padStart(2, '0')}:${fechaActual.getUTCMinutes().toString().padStart(2, '0')}:${fechaActual.getUTCSeconds().toString().padStart(2, '0')}`;
+
     const fechaInicial = new Date(this.fechaInicial);
     const fechaFinal = new Date(this.fechaFin);
     
@@ -49,7 +51,7 @@ export class ModalComponent implements OnInit{
         position: 'center',
         icon: 'error',
         title: `Fecha incorrecta !`,
-        text: 'Debes seleccionar una fecha igual o posterior a la actual!',
+        html: `Debes seleccionar una fecha igual o posterior a la actual: <span style="color: blue; text-decoration: underline">${formattedFechaActual}</span>`,
         showConfirmButton: true,
         confirmButtonText: 'Entendido'
       });
