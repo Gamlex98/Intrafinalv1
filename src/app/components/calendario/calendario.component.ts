@@ -19,6 +19,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./calendario.component.scss'],
   providers: [CalendarService]
 })
+
 export class CalendarioComponent implements OnInit {
   visible !: boolean;
   fechaSeleccionada!: string;

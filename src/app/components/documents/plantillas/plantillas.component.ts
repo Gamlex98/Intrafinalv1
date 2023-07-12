@@ -15,7 +15,7 @@ import { DocumentosServicios_generales } from '../manaules-guias/manaules-guias.
 })
 export class PlantillasComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort !: MatSort;
-
+  
   // mostrar_columnas: string[] = ['fecha', 'area', 'nombre', 'url', 'download' ];
   mostrar_columnas: string[] = ['fecha', 'area', 'nombre', 'download' ];
 

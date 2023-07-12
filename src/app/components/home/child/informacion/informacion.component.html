@@ -43,14 +43,14 @@
             <p style="font-weight: bold;">¿ Quieres buscar el listado de cumpleaños para un mes diferente ?</p>
             <mat-form-field appearance="fill">
                 <mat-label>Seleccionar mes</mat-label>
-                <mat-select [(value)]="selectedMonth" (selectionChange)="getDataUsersWithBirthday(selectedMonth)"
-                    style="color:rgb(200, 228, 200);">
+                <mat-select [(value)]="currentMonth" (selectionChange)="getDataUsersWithBirthday(currentMonth)"
+                    style="color:rgb(64, 87, 64);">
                     <mat-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div>
-            <img src="assets/img/componentes/cumple.jpg" style="width: 250px;height: 300px;margin-top: 100px;">
+            <img src="assets/img/componentes/cumple.jpg" class="imgCumple img-fluid">
         </div>
         <!--             <div class="details">
                 <h2 class="color1">You're not a Fossil! (YET)</h2>

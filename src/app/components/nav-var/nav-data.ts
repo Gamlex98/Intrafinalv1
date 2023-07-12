@@ -8,11 +8,11 @@ export const navbarData: INavbarData[] = [
         icon: 'fal fa-home',
         label: 'Home'
     },
-    {
+/*     {
         routeLink: 'upload',
         icon: 'far fa-arrow-alt-circle-up',
         label: 'Upload'
-    },
+    }, */
     {
         routeLink: 'documentos/documentosFresmar',              
         icon: 'fa fa-folder',

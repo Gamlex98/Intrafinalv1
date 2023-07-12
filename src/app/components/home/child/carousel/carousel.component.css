@@ -44,7 +44,7 @@ body {
   
 
   .carousel {
-    --carousel-width: 900px;
+    --carousel-width: 800px;
     --carousel-height: 600px;
     --navdots-height: 24px;
     --active-index: 0;

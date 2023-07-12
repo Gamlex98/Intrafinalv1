@@ -9,16 +9,13 @@ import { HomeService } from 'src/app/services/home.service';
   templateUrl: './informacion.component.html',
   styleUrls: ['./informacion.component.scss']
 })
-
 export class InformacionComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   dataSource!: MatTableDataSource<userModel>;
-
   usersWithBirthday: userModel[] = [];
-  selectedMonth: string = '07'; // Mes seleccionado por defecto (julio)
-
   displayedColumns: string[] = ['sucursal', 'nombreCompleto', 'cargo', 'lugarNacimiento', 'fechaNacimiento'];
+  currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
 
   months: { value: string, name: string }[] = [
     { value: '01', name: 'Enero' },
@@ -35,15 +32,13 @@ export class InformacionComponent implements OnInit, AfterViewInit {
     { value: '12', name: 'Diciembre' }
   ];
 
-  constructor(
-    private homeService: HomeService,
-  ) {
+  constructor(private homeService: HomeService) {
     this.dataSource = new MatTableDataSource<userModel>([]);
-    this.selectedMonth = '07'; // Establecer el valor del mes por defecto
   }
 
   ngOnInit() {
-    this.getDataUsersWithBirthday(this.selectedMonth);
+    console.log('Este es el mes Automatizado : ',this.currentMonth);
+    this.getDataUsersWithBirthday(this.currentMonth);
   }
 
   ngAfterViewInit(): void {
@@ -51,7 +46,7 @@ export class InformacionComponent implements OnInit, AfterViewInit {
   }
 
   getDataUsersWithBirthday(month: string) {
-    console.log('Test entrada del date', month);
+    console.log('Test entrada del Select Date', month);
 
     switch (month) {
       case '01':
@@ -79,8 +74,8 @@ export class InformacionComponent implements OnInit, AfterViewInit {
     }
   }
 
-  aplicarfiltroFecha () {
-
+  aplicarfiltroFecha() {
+    // Implementa el código para aplicar el filtro de fecha si es necesario
   }
 
 }

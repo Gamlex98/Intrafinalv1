@@ -26,6 +26,7 @@ export class ManaulesGuiasComponent implements OnInit, AfterViewInit {
   datosImportaciones = new MatTableDataSource<DocumentosImportaciones>(documentosImportaciones);
   datosServicions_generales = new MatTableDataSource<DocumentosServicios_generales>(documentosServicios_generales);
   datosSig = new MatTableDataSource<DocumentosSig>(documentosSig);
+  datosSeguridadSalud = new MatTableDataSource<DocumentosSeguridad_salud>(DocumentosSeguridad_salud);
   datosTalento_Humano = new MatTableDataSource<DocumentosTalento_Humano>(documentosTalento_Humano);
   datosTesoreria = new MatTableDataSource<DocumentosTesoreria>(documentosTesoreria);
   datosTi = new MatTableDataSource<DocumentosTi>(documentosTi);
@@ -101,6 +102,12 @@ export class ManaulesGuiasComponent implements OnInit, AfterViewInit {
       case 'sig':
         this.tablaSeleccionada = this.datosSig;
         this.service.getDocumentosPorAreaManuales('sig').subscribe((documentos: DocumentosSig[]) => {
+          this.tablaSeleccionada.data= documentos;
+        });
+        break;
+        case 'seguridad_salud':
+        this.tablaSeleccionada = this.datosSeguridadSalud;
+        this.service.getDocumentosPorAreaManuales('seguridad_salud').subscribe((documentos: DocumentosSeguridad_salud[]) => {
           this.tablaSeleccionada.data= documentos;
         });
         break;
@@ -241,8 +248,8 @@ export interface DocumentosSig{
   url: string;
   download: string;
 }
+const documentosSig: DocumentosSig[] = [];
 
-const documentosServicios_generales: [] = [];
 
 export interface DocumentosServicios_generales{
   fecha : string;
@@ -252,7 +259,18 @@ export interface DocumentosServicios_generales{
   download: string;
 }
 
-const documentosSig: DocumentosSig[] = [];
+const documentosServicios_generales: [] = [];
+
+export interface DocumentosSeguridad_salud{
+  fecha : string;
+  nombre: string;
+  area : string;
+  url: string;
+  download: string;
+}
+
+const DocumentosSeguridad_salud: [] = [];
+
 
 export interface DocumentosTalento_Humano {
   fecha: string;
