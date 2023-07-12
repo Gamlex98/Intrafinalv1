@@ -37,7 +37,7 @@ export class ModalComponent implements OnInit{
   
   guardarEvento() {
     const fechaActual = new Date();
-    const formattedFechaActual = `${fechaActual.getHours().toString().padStart(2, '0')}:${fechaActual.getUTCMinutes().toString().padStart(2, '0')}:${fechaActual.getUTCSeconds().toString().padStart(2, '0')}`;
+    const formattedFechaActual = `${fechaActual.getDate().toString().padStart(2, '0')}/${(fechaActual.getMonth() + 1).toString().padStart(2, '0')}/${fechaActual.getFullYear()} ${fechaActual.getUTCHours().toString().padStart(2, '0')}:${fechaActual.getUTCMinutes().toString().padStart(2, '0')}:${fechaActual.getUTCSeconds().toString().padStart(2, '0')}`;
 
     const fechaInicial = new Date(this.fechaInicial);
     const fechaFinal = new Date(this.fechaFin);

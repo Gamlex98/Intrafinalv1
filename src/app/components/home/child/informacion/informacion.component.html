@@ -1,6 +1,10 @@
 
 <div class="contenedor-principal">
     <div class="izquierda">
+        <div class="subtitle">
+            <h3>Cumpleaños del mes {{getMonthName(currentMonth)}}  </h3>
+        </div> 
+        <br><br>          
         <div class="paginador-contenedor">
             <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons aria-placeholder="Items por pagina">
             </mat-paginator>
@@ -40,6 +44,7 @@
     </div>
     <div class="derecha">
         <div>
+            <br><br><br>
             <p style="font-weight: bold;">¿ Quieres buscar el listado de cumpleaños para un mes diferente ?</p>
             <mat-form-field appearance="fill">
                 <mat-label>Seleccionar mes</mat-label>

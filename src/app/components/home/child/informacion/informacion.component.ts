@@ -74,6 +74,11 @@ export class InformacionComponent implements OnInit, AfterViewInit {
     }
   }
 
+  getMonthName(monthValue: string): string {
+    const month = this.months.find(m => m.value === monthValue);
+    return month ? month.name : '';
+  }
+
   aplicarfiltroFecha() {
     // Implementa el código para aplicar el filtro de fecha si es necesario
   }
